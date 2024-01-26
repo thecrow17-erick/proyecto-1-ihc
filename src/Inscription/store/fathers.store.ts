@@ -19,10 +19,10 @@ const storeApi :StateCreator<PersonState & Actions> = (set)=>({
   ci: '',
   celular: '',
   email: '',
-  setName: (value: string) => set(state => ({name: value})),
-  setCI: (value: string) => set(state => ({ci: value})),
-  setCelular: (value: string) => set(state => ({celular: value})),
-  setEmail:(value: string) => set(state => ({email: value})),
+  setName: (value: string) => set(({name: value})),
+  setCI: (value: string) => set(({ci: value})),
+  setCelular: (value: string) => set(({celular: value})),
+  setEmail:(value: string) => set( ({email: value})),
 })
 
 // const sesionStorage: StateStorage= {

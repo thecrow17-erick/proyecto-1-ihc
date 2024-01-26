@@ -4,12 +4,14 @@ import { Link} from 'react-router-dom';
 import {StudentForm} from '@/Inscription/components'
 import {Alert, AlertDescription, AlertTitle, Button } from '@/components';
 import { useStudentStore } from '../store/students.store';
+import { FormEvent } from 'react';
 
 export const FormStudents = ({setProgress}:{setProgress(n:number): void}) => {
   const students = useStudentStore(state => state.students)
   const newStudent = useStudentStore(state => state.NewSudent)
   
-  const onSubmit = ()=>{
+  const onSubmit = (e:FormEvent<HTMLFormElement>)=>{
+    e.preventDefault();
     if(students.length === 0 ) return;
     setProgress(3);
   };
@@ -29,7 +31,7 @@ export const FormStudents = ({setProgress}:{setProgress(n:number): void}) => {
           }
           <h3 className="text-center font-bold text-2xl text-gray-400 mb-5">Inscripcion de estudiantes</h3>
           <div className="h-full w-full md:px-5 p-2"  >
-            <form onSubmit={()=> onSubmit()}>
+            <form onSubmit={(e)=> onSubmit(e)}>
               {
                 students.map((_,i)=>(
                   <StudentForm key={i} index={i} />

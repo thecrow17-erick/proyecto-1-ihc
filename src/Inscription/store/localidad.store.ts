@@ -17,9 +17,9 @@ const storeApi :StateCreator<LocalidadState & Actions> = (set)=>({
   deparatamento: '',
   provincia: '',
   localidad: '',
-  setDeparatamento: (value: string) => set(state => ({deparatamento: value})),
-  setProvincia: (value: string) => set(state => ({provincia: value})),
-  setLocalidad: (value: string) => set(state => ({localidad: value})),
+  setDeparatamento: (value: string) => set(({deparatamento: value})),
+  setProvincia: (value: string) => set(({provincia: value})),
+  setLocalidad: (value: string) => set(({localidad: value})),
 })
 
 // const sesionStorage: StateStorage= {
